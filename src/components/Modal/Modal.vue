@@ -13,7 +13,7 @@
             <h3 class="pr-5">{{ SELECTED_PACKAGE.name }}</h3>
             <span>Version {{ SELECTED_PACKAGE.tag }}</span>
           </div>
-          <div class="pt-3">
+          <div class="pt-3" v-if="SELECTED_PACKAGE.files">
             <h4 class="text-center">Files</h4>
             <table class="table table-sm">
               <thead>
@@ -31,7 +31,7 @@
               </tr>
               </tbody>
             </table>
-            <div class="pt-3">
+            <div class="pt-3" v-if="SELECTED_PACKAGE.version">
               <h4 class="text-center">Last Versions</h4>
               <table class="table table-sm">
                 <thead>
