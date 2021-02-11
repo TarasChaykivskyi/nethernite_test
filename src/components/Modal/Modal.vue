@@ -1,6 +1,6 @@
 <template>
   <div class="modal fade show" @click.self="HIDE_MODAL">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-size">
       <div class="modal-content modal-content-scroll">
         <div class="modal-header">
           <h5 class="modal-title">Detail Information</h5>

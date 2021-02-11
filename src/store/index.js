@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from "axios";
+import API from "@/modules/API";
 
 Vue.use(Vuex)
 
@@ -58,7 +58,7 @@ export default new Vuex.Store({
     },
     actions: {
         GET_PACKAGES({commit}) {
-            axios.get(`https://data.jsdelivr.com/v1/stats/packages`)
+            API.getPackages()
                 .then(response => {
                     commit("setPackages", response.data);
                 }).catch(error => {
@@ -70,13 +70,13 @@ export default new Vuex.Store({
                 name: obj.name
             }
             commit('toggleModal', true)
-            await axios.get(`https://data.jsdelivr.com/v1/package/${obj.type}/${obj.name}`)
+            await API.getTagPackage(obj)
                 .then(response => {tmp.tag = response.data.tags.latest})
-            await axios.get(`https://data.jsdelivr.com/v1/package/${obj.type}/${obj.name}/stats`)
+            await API.getVersionsPackage(obj)
                 .then(response => {
                     tmp.version = response.data.versions
                 })
-            await axios.get(`https://data.jsdelivr.com/v1/package/${obj.type}/${obj.name}@${tmp.tag}`)
+            await API.getFilesPackage(obj, tmp)
                 .then(response => {tmp.files = response.data.files[0].files})
             await commit('setSelectedPackage', tmp);
         },

@@ -34,8 +34,17 @@
     }
   }
 
+  .modal-dialog-size {
+    width: 600px;
+
+    @media screen and (max-width: 676px) {
+      width: 100%;
+    }
+  }
+
   .modal-content-scroll {
     max-height: 300px;
+    width: 100%;
     overflow-y: scroll;
   }
 }
