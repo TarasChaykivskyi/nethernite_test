@@ -1,0 +1,70 @@
+@import "~bootstrap";
+
+.wrapper {
+  min-height: 500px;
+}
+
+.avatar {
+  height: 60px;
+}
+
+.modal {
+
+  &.show {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background: rgba(0,0,0,.5);
+  }
+
+  .btn-close-modal {
+    width: 35px;
+    height: 35px;
+    position: relative;
+
+    i {
+      font-size: 35px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      line-height: 0;
+    }
+  }
+
+  .modal-content-scroll {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+}
+
+.table {
+
+  tr {
+    cursor: pointer;
+
+    &:hover {
+      -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    @media screen and (max-width: 420px) {
+      padding: 0.25rem;
+      font-size: 13px;
+    }
+  }
+
+  thead {
+
+    tr {
+      cursor: inherit;
+
+      &:hover {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+    }
+  }
+}
